@@ -55,7 +55,7 @@ Please respect the institution's ethical standards. Use this repository to learn
 
 El código publicado en este repo solo tiene fines educativos y de portafolio. Si eres un estudiante actual, encontraste este repo por alguna razón y estás tomando estos cursos o similares:
 1.  Siéntete libre de revisar mi código para entender la lógica o sintaxis.
-2.  Siguiendo el **Código de Ética de los Estudiantes del Tecnológico de MOnterrey**, **NO DEBES COPIAR O ENTREGAR ESTE CÓDIGO COMO TUYO.** El plagio académixo es una ofensa seria, y puedes ser acredor a una **FIA (Falta a la Integridad Académica)**.
+2.  Siguiendo el **Código de Ética de los Estudiantes del Tecnológico de Monterrey**, **NO DEBES COPIAR O ENTREGAR ESTE CÓDIGO COMO TUYO.** El plagio académixo es una ofensa seria, y puedes ser acredor a una **FIA (Falta a la Integridad Académica)**.
 
 ### Disclaimer:
 
