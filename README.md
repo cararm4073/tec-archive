@@ -11,6 +11,7 @@ So far, this repo contains the following projects:
 |----------------|---------|---------|-------------|------------|
 | Computational Thinking | TC1029 | - | - | Python
 | Object Oriented Programming | TC1033 | Simulation of a RPG system using OOP in a console program | There's a sequence of rooms, and each contains monsters. Both the player or character and the monster contain derive from a common base class, implementing a turn-based combat. | C++ |
+| Herramientas computacionales: el arte de la programación | TC1001S | Learn to use the terminal | Write and edit program's files, compile and install software from the terminal. Learn to use GIT for version management and the WSL (Windows Subsystem for Linux | Python, Terminal, WSL |
 | Computational Modeling of Movement (Physics) | F1004B | Damped Harmonic Oscillation Challenge | Study the movement of a mass-spring system immersed in a fluid (water) to describe motion. This to observe the damping regimes, visualization of positions, speeds and accelerations | Python, Tracker, .CSVs |
 |  Computational Modeling applying Conservation Laws (Physics) | F1005B | Analysis of collisions | Energy and collision analysis using video data from Tracker | Python, Tracker and .csv's |
 | Mathematics and Data Science for Decision Making | MA1042 | The Simpson's Paradox | Compare data using regressions before and after doing a clustering of the given data | Python |
