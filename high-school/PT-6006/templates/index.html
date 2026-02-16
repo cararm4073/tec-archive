@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mediciones Raspberry Pi</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 30px; }
+        h1 { font-size: 2em; }
+        .valor { font-size: 3em; margin: 20px; }
+        button { font-size: 1.2em; margin: 10px; padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <h1>Lectura Actual</h1>
+    <div class="valor" id="medicion">
+        {{ datos.tipo.capitalize() }}: {{ datos.valor }}<br>
+        <small>{{ datos.timestamp }}</small>
+    </div>
+
+    <button onclick="controlar('toggle')">Encender/Apagar</button>
+    <button onclick="controlar('cambiar')">Cambiar Medición</button>
+
+    <script>
+        async function controlar(accion) {
+            await fetch("/control", {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({accion})
+            });
+        }
+
+        async function actualizar() {
+            const res = await fetch("/datos");
+            const datos = await res.json();
+            document.getElementById("medicion").innerHTML =
+                `${datos.tipo.charAt(0).toUpperCase() + datos.tipo.slice(1)}: ${datos.valor}<br><small>${datos.timestamp}</small>`;
+        }
+
+        setInterval(actualizar, 2000);
+    </script>
+</body>
+</html>
