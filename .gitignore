@@ -1,0 +1,30 @@
+# --- C++ (Ignorar ejecutables) ---
+*.exe
+*.out
+*.o
+*.app
+TempCodeRunnerFile.cpp
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4198db376c010593c960b0d75d48d8462567cfd
+
+# --- VSCodium / Linux ---
+.vscode/
+.DS_Store
+.Rproj.user
+*.pper
+
+# --- R PROJECTS ---
+.Rproj.user/
+.Rhistory
+.RData
+
+# --- CARPETAS ---
+bin/
+obj/
+
+# --- ARCHIVOS ---
+*.mp4
+*.pdf
+*.html
