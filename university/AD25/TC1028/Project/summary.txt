@@ -1,0 +1,8 @@
+=== CLASSROOM SUMMARY ===
+
+Total seats: 9
+Seats occupied: 6
+Empty seats: 3
+Present today: 0
+
+Students present:
