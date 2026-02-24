@@ -1,26 +1,25 @@
-# --- C++ (Ignorar ejecutables) ---
+# Ejecutables
 *.exe
 *.out
 *.o
 *.app
 TempCodeRunnerFile.cpp
-<<<<<<< HEAD
-=======
 
->>>>>>> e4198db376c010593c960b0d75d48d8462567cfd
-
-# --- VSCodium / Linux ---
+# VSCodium
 .vscode/
 .DS_Store
 .Rproj.user
 *.pper
 
-# --- R PROJECTS ---
-.Rproj.user/
-.Rhistory
-.RData
+# Matlab
+*.asv
 
-# --- CARPETAS ---
+# R Project
+*.Rproj.user/
+*.Rhistory
+*.RData
+
+# Carpetas
 bin/
 obj/
 
