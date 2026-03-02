@@ -1,0 +1,134 @@
+---
+title: "Análisis de genomas Sars-2"
+output: html_document
+name: "Carlos"
+---
+
+# Paquetes
+### Verificar instalación de paquetes
+```{r}
+#Configuración inicial
+options(timeout = 600)
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+#gestores de paquetes
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+
+#paquetes CRAN
+paquetes_cran <- c("seqinr", "adegenet", "ape", "viridis", "ggplot2", "phytools", "phangorn", "geiger")
+for (paq in paquetes_cran) {
+  if (!requireNamespace(paq, quietly = TRUE)) {
+    install.packages(paq, dependencies = TRUE)
+  }
+}
+
+#paquetes de bioconductor
+paquetes_bioc <- c("DECIPHER", "Biostrings", "BiocGenerics")
+for (paq in paquetes_bioc) {
+  if (!requireNamespace(paq, quietly = TRUE)) {
+    BiocManager::install(paq, update = FALSE, ask = FALSE)
+  }
+}
+
+#instalación de ggtree desde github
+
+# Paquetes ggtree desde GitHub
+if (!requireNamespace("yulab.utils", quietly = TRUE)) {
+  remotes::install_github("YuLab-SMU/yulab.utils", upgrade = "never")
+}
+if (!requireNamespace("tidytree", quietly = TRUE)) {
+  remotes::install_github("YuLab-SMU/tidytree", upgrade = "never")
+}
+if (!requireNamespace("treeio", quietly = TRUE)) {
+  remotes::install_github("YuLab-SMU/treeio", upgrade = "never")
+}
+if (!requireNamespace("ggtree", quietly = TRUE)) {
+  remotes::install_github("YuLab-SMU/ggtree", upgrade = "never")
+}
+if (!requireNamespace("ggtreeExtra", quietly = TRUE)) {
+  remotes::install_github("YuLab-SMU/ggtreeExtra", upgrade = "never")
+}
+
+#en caso de tener algún error, puede que falten librerías en el sistema. yo tuve que instalar como 10 librerias en linux para que funcionara todo. recomiendo copiar y pegar los errores de la consola en claude AI para solucionar los paquetes faltantes al ejecutar este chunk
+print("Éxito")
+```
+
+### Activación de paquetes
+```{r}
+library(seqinr)
+library(adegenet)
+library(ape)
+library(ggtreeExtra)
+library(DECIPHER)
+library(viridis)
+library(ggplot2)
+library(phytools)
+library(phangorn)
+library(geiger)
+library(Biostrings)
+library(BiocGenerics)
+print("Éxito")
+```
+
+# Actividad
+### 1. Crear un árbol filogenético a partir de accession numbers de las secuencias del SARS-2 y visualizarlo
+```{r}
+seqs <- readDNAStringSet("SARS2.txt")
+seqs
+
+```
+
+### 2. Orientar las secuencias
+```{r}
+seqs <- OrientNucleotides(seqs)
+aligned <- AlignSeqs(seqs)
+```
+
+### 3. Visualizar el alineamiento en un navegador
+```{r}
+BrowseSeqs(aligned, highlight = 0)
+```
+
+### 4. Escribir el alineamiento en un nuevo fasta
+```{r}
+writeXStringSet(aligned, file="Virus_alineados.fasta")
+```
+
+### 5. Leer el fasta
+```{r}
+dna <- read.alignment("Virus_alineados.fasta",format="fasta")
+```
+
+### 6. Crear una matriz de distancia.
+Entre más oscuro, mayor es la distancia evolutiva
+```{r}
+dist <- dist.alignment(dna,matrix="similarity")
+temp <- as.data.frame(as.matrix(dist))
+
+#reemplazar datos vacíos con 0, evitar errores
+temp[is.na(temp)] <- 0
+
+#normalizar datos
+rango <- range(temp, na.rm=TRUE)
+temp_norm <- (temp - rango[1]) / (rango[2] - rango[1])
+temp_norm[temp_norm < 0] <- 0
+temp_norm[temp_norm > 1] <- 1
+
+table.paint(temp_norm, cleg=0, clabel.row=0.5, clabel.col=0.5)
+```
+
+### 7. Árbol filogenético
+```{r}
+tree <- njs(dist)
+tree <- ladderize(tree)
+plot(tree,cex=0.6)
+title("Similaridad en los genomas de los virus")
+
+plot(tree, type="fan", cex=0.6)
+title("Similaridad en los genomas de los virus")
+```
