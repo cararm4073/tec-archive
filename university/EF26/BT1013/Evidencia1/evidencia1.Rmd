@@ -1,0 +1,177 @@
+---
+title: "R Notebook"
+output: html_notebook
+Name: "Carlos" 
+---
+PARTE 2 DEL PROYECTO
+
+# Verificación, instalación y activación de paquetes
+```{r}
+if (!"seqinr" %in% installed.packages()) {
+  install.packages("seqinr")
+}
+library("seqinr")
+```
+
+# Archivos y variables
+```{r}
+Canada <- read.fasta("genomes/CAN.fasta")         # ok
+Francia <- read.fasta("genomes/FRA.fasta")        # ok
+Brasil <- read.fasta("genomes/BRA.fasta")         # ok
+Mexico <- read.fasta("genomes/MEX.fasta")         # ok
+Australia <- read.fasta("genomes/AUT.fasta")      # ok
+Alemania <- read.fasta("genomes/GEM.fasta")       # ok
+Paises_bajos <- read.fasta("genomes/NLD.fasta")   # ok
+Japon <- read.fasta("genomes/JPN.fasta")          # ok
+Nigeria <- read.fasta("genomes/NGA.fasta")        # ok
+Hong_kong <- read.fasta("genomes/HKG.fasta")      # ok
+Singapur <- read.fasta("genomes/SGP.fasta")       # ok
+Malasia <- read.fasta("genomes/MYS.fasta")        # ok
+Noruega <- read.fasta("genomes/NOR.fasta")        # ok
+Italia <- read.fasta("genomes/ITA.fasta")         # ok
+Chile <- read.fasta("genomes/CHL.fasta")          # ok
+Suecia <- read.fasta("genomes/SWE.fasta")         # ok
+```
+
+# Ejercicios
+### 1. Calcula el tamaño de los genomas
+```{r}
+paste("La longitud del genoma del SARS2, variante de Alemania es: ",length(Alemania[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Australia es: ",length(Australia[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Brasil es: ",length(Brasil[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Canadá es: ",length(Canada[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Chile es: ",length(Chile[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Francia es: ",length(Francia[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Hong Kong es: ",length(Hong_kong[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Italia es: ",length(Italia[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Japón es: ",length(Japon[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Malasia es: ",length(Malasia[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de México es: ",length(Mexico[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Nigeria es: ",length(Nigeria[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Noruega es: ",length(Noruega[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Suecia es: ",length(Suecia[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Singapur es: ",length(Singapur[[1]]),"b")
+paste("La longitud del genoma del SARS2, variante de Países Bajos es: ",length(Paises_bajos[[1]]),"b")
+```
+
+### 2. Composición de nucleótidos
+```{r}
+print("La composición de nucleótidos del genoma del SARS2, variante de Alemania es:")
+count(Alemania[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Australia es:")
+count(Australia[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Brasil es:")
+count(Brasil[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Canadá es:")
+count(Canada[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Chile es:")
+count(Chile[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Francia es:")
+count(Francia[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Hong Kong es:")
+count(Hong_kong[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Italia es:")
+count(Italia[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Japón es:")
+count(Japon[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Malasia es:")
+count(Malasia[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de México es:")
+count(Mexico[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Nigeria es:")
+count(Nigeria[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Noruega es:")
+count(Noruega[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Suecia es:")
+count(Suecia[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Singapur es:")
+count(Singapur[[1]],1)
+print("La composición de nucleótidos del genoma del SARS2, variante de Países Bajos es:")
+count(Paises_bajos[[1]],1)
+
+```
+
+### 3. Porcentaje de GC de los genomas
+```{r}
+paste("Porcentaje de GC para la variante de Alemania:", round(GC(Alemania[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Australia:", round(GC(Australia[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Brasil:", round(GC(Brasil[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Canadá:", round(GC(Canada[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Chile:", round(GC(Chile[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Francia:", round(GC(Francia[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Hong Kong:", round(GC(Hong_kong[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Italia:", round(GC(Italia[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Japón:", round(GC(Japon[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Malasia:", round(GC(Malasia[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de México:", round(GC(Mexico[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Nigeria:", round(GC(Nigeria[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Noruega:", round(GC(Noruega[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Países Bajos:", round(GC(Paises_bajos[[1]]) * 100, 2),
+      "%")
+paste("Porcentaje de GC para la variante de Singapur:", round(GC(Singapur[[1]]) * 100, 2), "%")
+paste("Porcentaje de GC para la variante de Suecia:", round(GC(Suecia[[1]]) * 100, 2), "%")
+
+```
+
+### 4. Secuencia complementaria de los genomas
+```{r}
+print("La secuencia complementaria del genoma del SARS2, variante de Alemania es:")
+comp(Alemania[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Australia es:")
+comp(Australia[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Brasil es:")
+comp(Brasil[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Canadá es:")
+comp(Canada[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Chile es:")
+comp(Chile[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Francia es:")
+comp(Francia[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Hong Kong es:")
+comp(Hong_kong[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Italia es:")
+comp(Italia[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Japón es:")
+comp(Japon[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Malasia es:")
+comp(Malasia[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de México es:")
+comp(Mexico[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Nigeria es:")
+comp(Nigeria[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Noruega es:")
+comp(Noruega[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Países Bajos es:")
+comp(Paises_bajos[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Singapur es:")
+comp(Singapur[[1]])
+print("La secuencia complementaria del genoma del SARS2, variante de Suecia es:")
+comp(Suecia[[1]])
+
+
+```
+
+### 5. Gráficas comparativas para las bases de los genomas
+```{r}
+compare <- function (Alemania,Australia,Brasil,Canada,Chile,Francia,Hong_kong,Italia,Japon,Malasia,Mexico,Nigeria,Noruega,Paises_bajos,Singapur,Suecia){
+  par(mar=c(3,3,1.5,3))
+  par(mfrow=c(4,4))
+  barplot(table(Alemania),col=1:4,main="Alemania")
+  barplot(table(Australia),col=1:4,main="Australia")
+  barplot(table(Brasil),col=1:4,main="Brasil")
+  barplot(table(Canada),col=1:4,main="Canadá")
+  barplot(table(Chile),col=1:4,main="Chile")
+  barplot(table(Francia),col=1:4,main="Francia")
+  barplot(table(Hong_kong),col=1:4,main="Hong Kong")
+  barplot(table(Italia),col=1:4,main="Italia")
+  barplot(table(Japon),col=1:4,main="Japón")
+  barplot(table(Malasia),col=1:4,main="Malasia")
+  barplot(table(Mexico),col=1:4,main="México")
+  barplot(table(Nigeria),col=1:4,main="Nigeria")
+  barplot(table(Noruega),col=1:4,main="Noruega")
+  barplot(table(Paises_bajos),col=1:4,main="Países Bajos")
+  barplot(table(Singapur),col=1:4,main="Singapur")
+  barplot(table(Suecia),col=1:4,main="Suecia")
+  }
+compare(Alemania,Australia,Brasil,Canada,Chile,Francia,Hong_kong,Italia,Japon,Malasia,Mexico,Nigeria,Noruega,Paises_bajos,Singapur,Suecia)
+```
