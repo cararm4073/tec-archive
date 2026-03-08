@@ -49,7 +49,7 @@ df1 = df1.dropna(subset=['t', 'y'])
 t1 = df1['t'].values
 y1 = df1['y'].values
 
-df2 = df1.dropna(subset=['t', 'y'])
+df2 = df2.dropna(subset=['t', 'y'])
 t2 = df2['t'].values
 y2 = df2['y'].values
 
