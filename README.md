@@ -1,11 +1,13 @@
 # First Semester Portfolio
 
-This repository collects all (or at least most) of the final projects and competency evidence developed during my first semester of the **B.S. in Computer Science and Technology (ITC)** at Tecnológico de Monterrey, during the period of AD25.
+This repository collects all (or at least most) of the final projects and competency evidence developed during studies for **B.S. in Computer Science and Technology (ITC)** at Tecnológico de Monterrey, since the period of AD25.
+It also contains different activities made during high school (2024-2025), mainly to show the progress made throughout the time.
 
 
 ## 📂 Repository Contents
 
 So far, this repo contains the following projects:
+*This list is not updated since idk, mainly only contains projects for the AD25 period
 
 | Course | Code | Project | Description | Tech |
 |----------------|---------|---------|-------------|------------|
@@ -16,21 +18,12 @@ So far, this repo contains the following projects:
 |  Computational Modeling applying Conservation Laws (Physics) | F1005B | Analysis of collisions | Energy and collision analysis using video data from Tracker | Python, Tracker and .csv's |
 | Mathematics and Data Science for Decision Making | MA1042 | The Simpson's Paradox | Compare data using regressions before and after doing a clustering of the given data | Python |
 
-> **Note:** This repository is marked as ***archived*** (or will be soon) and primarily serves as a historical record of my learning progress during my first semester. Code and files might not follow common standars, and might have bugs.
-
 ## 🛠️ Tech Stack & Tools
 
 * **Languages**
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![MATLAB](https://img.shields.io/badge/MATLAB-e16737?style=for-the-badge&logo=mathworks&logoColor=white)
-
-* **Environments**
-![Linux Mint](https://img.shields.io/badge/Linux_Mint-87CF3E?style=for-the-badge&logo=linux-mint&logoColor=white)
-![WSL](https://img.shields.io/badge/WSL-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Windows 10](https://img.shields.io/badge/Windows_10-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
-![Bash](https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
 
 * **Editors & Tools**
 ![VSCodium](https://img.shields.io/badge/VSCodium-2F80ED?style=for-the-badge&logo=vscodium&logoColor=white)
@@ -39,6 +32,7 @@ So far, this repo contains the following projects:
 ![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
 ![Tracker](https://img.shields.io/badge/Physlets-Tracker-blueviolet?style=for-the-badge)
 
+> **Note:** This repository primarily serves as a historical record of my learning progress during my studies. **Code and files might not follow common standars**, and might even have bugs. The contents of the files will not be changed from the submitted ones on Canvas, the only information that will be edited or deleted is private information.
 
 ## ⚠️ Academic Integrity
 
@@ -72,4 +66,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 Created by [Carlos / cararm4073] - *ITC Student*
-> This repo might be unarchived at any point to update files, but the content of them will not be changed from the submitted one on Canvas.
