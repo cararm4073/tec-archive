@@ -1,13 +1,15 @@
 # First Semester Portfolio
 
 This repository collects all (or at least most) of the final projects and competency evidence developed during studies for **B.S. in Computer Science and Technology (ITC)** at Tecnológico de Monterrey, since the period of AD25.
+
 It also contains different activities made during high school (2024-2025), mainly to show the progress made throughout the time.
 
 
 ## 📂 Repository Contents
 
 So far, this repo contains the following projects:
-*This list is not updated since idk, mainly only contains projects for the AD25 period
+
+*This list is not updated since idk, mainly only contains projects for the AD25 period*
 
 | Course | Code | Project | Description | Tech |
 |----------------|---------|---------|-------------|------------|
