@@ -14,7 +14,7 @@ Navigate through the different stages of my education at TEC:
 * **[High School (2022-2025)](./high-school)**: Early introduction to logic, basic and introductory projects.
 * **[Undergraduate: Computer Science (2025-Present)](./university)**: Core CS subjects, software engineering, and computational modeling.
     * **[First Semester (AD25)](./university/AD25)**
-    * **[Second Semester (EJ26)](./Career/EF26)**
+    * **[Second Semester (EJ26)](./university/EF26)**
 
 ---
 
