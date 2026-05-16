@@ -1,4 +1,4 @@
-Sale price (pesos) ,Age (years) ,Mileage (miles) ,Condition Promedio , Excellent , One owner 
+Price,Age,Miles,Condition,Excellent,Owner
 " $60,000.00 ",9,112,1,0,1
 " $54,000.00 ",9,159,0,0,1
 " $59,900.00 ",8,192,0,0,1
