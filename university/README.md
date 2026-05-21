@@ -32,7 +32,10 @@ This directory contains the most important projects for my professional developm
 | Course Code | Name | Description | Tech Stack |
 | :--- | :--- | :--- | :--- |
 | **F1008** | Physical Experimentation and Statistical Thinking | Engineering modeling using advanced calculus. | MATLAB |
-| **F1013B** | Computational Modeling of Electrical Systems | Computational modeling of electric and magnetic fields. | MATLAB |
+| **TC1003B** | Modeling of Engineering with Computational Mathematics | Detection of borders on digital images with different algorithms. | MATLAB |
+| **F1013B** | Computational Modeling of Electrical Systems | RC Circuit behaviour and energy storage (charge and discharge) of capacitors in RC Circuits. | MATLAB |
+| **F1014B** |  Computational Modeling of Electromagnetic Systems | Computational simulation of the decelaration by magnetig braking (eddy currents) of a gondola. | Python | 
+| **MA1029** | Statistical Analysis | Analyse the factor that affect the sale price of a car with different regression models and estimations/projections | Python | 
 
 ---
 
