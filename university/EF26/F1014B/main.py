@@ -25,6 +25,13 @@ v_i = 0
 """#Ask for inputs from the user
 
 These values will be used for the 3 stages
+
+Some recommended values:
+* Mass: `1000` kg
+* Starting height: `200` m
+* Constant of magnetic braking: `300` kg/s
+* Time of simulation run: `50` s
+* Height respect to the floor where the magnetic braking starts: `50` m
 """
 
 # @title
@@ -345,3 +352,33 @@ axs[1,1].set_xlim(y_i, 0)
 axs[1,1].legend()
 
 plt.show()
+
+"""## 🗒 Final results"""
+
+# @title
+#final velocity
+f_velocity = (mass * gravity) / k
+
+#magnetic acceleration
+max_magnetic_accel = -(k / mass) * v_i2
+
+#g's (times gravity force is exerted on something)
+max_g = np.max(np.abs(total_acceleration)) / abs(gravity)
+
+print(f"Theoretical final velocity of the simulation: {f_velocity:.3f} m/s")
+print(f"\nMax acceleration of the magnetic force: {max_magnetic_accel:.3f} m/s²")
+print(f"\nFinal impact speed at ground: {solution2.y[1,-1]:.3f} m/s")
+print(f"\nMaximum G-force experienced: {max_g:.3f} G's")
+
+"""## Safety check"""
+
+# @title
+if max_g > 4.0:
+    print("\n  The acceleration is too high and dangerous for human beings (> 4G)!")
+else:
+    print("\n  The acceleration remained in a safe limit for humans.")
+
+if abs(f_velocity) > 5.0:
+    print(f"\n\n  IMPACT WARNING: The final speed of {f_velocity:.3f} m/s is FATAL!\n")
+else:
+    print(f"n\nIMPACT IS SAFE: The gondola landed at a safe speed (< 5.0 m/s).\n")
