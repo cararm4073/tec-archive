@@ -62,8 +62,6 @@ print(f"\nThe final velocity would be: {v_f:.3f} m/s")
 
 ###Differential equation definition
 """
-
-# @title
 #function that will use the scipy.integrate library later on. using vectors of both the current time (t) and a "state vector" that will have the height and speed at the given time
 def dif_eq(t,y):
   #array structure
@@ -97,7 +95,7 @@ velocity_data = solution1.y[1]
 
 accel_data = np.full_like(time_data, gravity)
 
-"""## 🗒 Showing the results"""
+"""##Showing the results"""
 
 print(f"Real time that it took the gondola to fall: {time_data[-1]:.3f} s")
 print(f"The time you asked for the simulation: {t_max:.3f}")
@@ -106,7 +104,7 @@ print(f"\nSpeed when the gondola reached the floor: {velocity_data[-1]:.3f} m/s"
 
 print(f"\nFinal acceleration: {accel_data[-1]:.3f} m/s")
 
-"""## 📊 Plotting"""
+"""## Plotting"""
 
 #subplots will be used for ease of representation of all the plots
 fig, axs = plt.subplots(2, 2, figsize=(15, 10))
@@ -235,7 +233,7 @@ hit_ground2.direction = -1
 
 solution2 = solve_ivp(magnetic_braking, [t_i2, t_max], [y_i2, v_i2], events=hit_ground2, dense_output=True, max_step=0.05)
 
-"""##🗒 Showing the results"""
+"""##Showing the results"""
 
 print(f"Final velocity when the gondola reaches the ground: {solution2.y[1,-1]:.3f} m/s")
 
@@ -256,7 +254,7 @@ acc_1 = np.full_like(solution1.t, gravity)
 acc_2 = gravity - (k / mass) * solution2.y[1]
 total_acceleration = np.concatenate((acc_1, acc_2))
 
-"""##📊 Plotting"""
+"""##Plotting"""
 
 fig, axs = plt.subplots(2, 2, figsize=(15, 10))
 fig.suptitle("Free Fall + Magnetic Braking")
@@ -353,9 +351,8 @@ axs[1,1].legend()
 
 plt.show()
 
-"""## 🗒 Final results"""
+"""## Final results"""
 
-# @title
 #final velocity
 f_velocity = (mass * gravity) / k
 
@@ -372,7 +369,6 @@ print(f"\nMaximum G-force experienced: {max_g:.3f} G's")
 
 """## Safety check"""
 
-# @title
 if max_g > 4.0:
     print("\n  The acceleration is too high and dangerous for human beings (> 4G)!")
 else:
