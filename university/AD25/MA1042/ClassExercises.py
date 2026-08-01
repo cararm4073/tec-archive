@@ -304,7 +304,7 @@ After installing the `ColabTurtle` in one cell, do in the following cell all of 
 * Draw an equilateral triangle
 """
 
-!pip install ColabTurtle
+#!pip install ColabTurtle
 
 import ColabTurtle.Turtle as jace
 jace.initializeTurtle()
@@ -437,7 +437,7 @@ With the animal you selected in class:
 #   Zig.introduce()
 #   #does the __init__ part cause to "Neighhh, I am a zebra" no not appear?
 
-!python Zebras.py
+#!python Zebras.py
 
 # Commented out IPython magic to ensure Python compatibility.
 # %reset -f
