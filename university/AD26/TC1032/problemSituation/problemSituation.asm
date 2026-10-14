@@ -50,7 +50,7 @@ pcount,     DEC 0               /new: Printing counter
 subPrint,   HEX 0				/Store return address to main
             Load startAdr		/ Loads buffer (address 0x070) into AC
             Store printFrom		/ printFrom points to the start of the buffer
-            Load n              /Load the 50 eradings into AC
+            Load n              /Load the 50 readings into AC
             Store pcount		/Start counter at 50
 
 startPrint, LoadI printFrom		/ load value from address in printFrom to AC
