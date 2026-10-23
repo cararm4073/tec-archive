@@ -1,15 +1,16 @@
 #pragma once
 
+template <typename T>
 class DLinkedList{
 private:
 	class Node{
 	public:
-		int info;
+		T info;
 		Node* next;
 		Node* prev;
 		
 		//constructor
-		Node(int value): info(value), next(nullptr), prev(nullptr) {}
+		Node(T& value): info(value), next(nullptr), prev(nullptr) {}
 	};
 	
 	//still under private, for double linked list
@@ -27,17 +28,17 @@ public:
 	DLinkedList& operator= (const DLinkedList&) = delete;
 	
 	//insertion methods
-	bool addFront(int value);
-	bool addBack(int value);
-	bool addSorted(int value);		//for defeated monsters
+	bool addFront(T& value);
+	bool addBack(T& value);
+	bool addSorted(T& value);		//for defeated monsters
 	
 	//getter methods
 	int getSize();
 	bool isEmpty();
 	
 	//search methods
-	int* getValue(int index);
-	bool searchValue(int value);
+	T* getValue(int index);
+	bool searchValue(T& value);
 	
 	//printing methods
 	void printList();
@@ -45,5 +46,7 @@ public:
 	
 	//delete methods
 	bool clearList();
-	bool deleteElement(int value);
+	bool deleteElement(T& value);
 };
+
+#include "double.tpp"

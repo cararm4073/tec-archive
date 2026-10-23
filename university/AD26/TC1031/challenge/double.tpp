@@ -2,15 +2,17 @@
 #include "DLinkedList.h"
 
 //constructor for double linked list
-DLinkedList::DLinkedList() : head(nullptr), tail(nullptr), size(0) {}
+template <typename T>
+DLinkedList<T>::DLinkedList() : head(nullptr), tail(nullptr), size(0) {}
 
 //destructor for double linked list
-DLinkedList::~DLinkedList() {
+template <typename T>
+DLinkedList<T>::~DLinkedList() {
 	clearList();
 }
 
-
-bool DLinkedList::addFront(int value){
+template <typename T>
+bool DLinkedList<T>::addFront(T& value){
 	Node* newElement = new(std::nothrow) Node(value);
 	if(!newElement){
 		std::cerr << "Failed to create new element.\n";
@@ -35,7 +37,8 @@ bool DLinkedList::addFront(int value){
 	return true;
 }
 
-bool DLinkedList::addBack(int value){
+template <typename T>
+bool DLinkedList<T>::addBack(T& value){
 	Node* newElement = new(std::nothrow) Node(value);
 	if(!newElement){
 		std::cerr << "Failed to create new element.\n";
@@ -58,7 +61,8 @@ bool DLinkedList::addBack(int value){
 	return true;
 }
 
-bool DLinkedList::addSorted(int value){
+template <typename T>
+bool DLinkedList<T>::addSorted(T& value){
 	//base case: if list is empty, or value is less or equal than first element. add to head
 	if (!head or value <= (head->info)) {
 		return addFront(value); 	//addFront is also a bool, so we return the overall output of it with this function
@@ -92,7 +96,8 @@ bool DLinkedList::addSorted(int value){
 	return true;
 }
 
-void DLinkedList::printList(){
+template <typename T>
+void DLinkedList<T>::printList(){
 	Node* temp = head;
 	
 	while(temp != nullptr){
@@ -102,7 +107,8 @@ void DLinkedList::printList(){
 	std::cout << "\n";
 }
 
-void DLinkedList::printReverse(){
+template <typename T>
+void DLinkedList<T>::printReverse(){
 	Node* temp = tail;
 	while(temp != nullptr){
 		std::cout << temp->info << " ";
@@ -111,7 +117,8 @@ void DLinkedList::printReverse(){
 	std::cout << "\n";
 }
 
-bool DLinkedList::searchValue(int value){
+template <typename T>
+bool DLinkedList<T>::searchValue(T& value){
 	if(!head){
 		std::cout << "List is empty.\n";
 		return false;
@@ -129,7 +136,8 @@ bool DLinkedList::searchValue(int value){
 	return false;
 }
 
-bool DLinkedList::clearList(){
+template <typename T>
+bool DLinkedList<T>::clearList(){
 	if(!head) return false;		//this line could be deleted, as deleting an empty list is already successful
 	
 	Node* temp = head;
@@ -145,7 +153,8 @@ bool DLinkedList::clearList(){
 	return true;
 }
 
-bool DLinkedList::deleteElement(int value){
+template <typename T>
+bool DLinkedList<T>::deleteElement(T& value){
 	//again, cerr could be moved by comparing true or false in main. could also call isEmpty()
 	if(!head){
 		std::cout << "There is no list to delete value from.\n";
@@ -192,16 +201,19 @@ bool DLinkedList::deleteElement(int value){
 	return true;
 }
 
-int DLinkedList::getSize() {
+template <typename T>
+int DLinkedList<T>::getSize() {
     return size;
 }
 
-bool DLinkedList::isEmpty() {
+template <typename T>
+bool DLinkedList<T>::isEmpty() {
     if(head == nullptr) return true;
 	return false;
 }
 
-int* DLinkedList::getValue(int index) {
+template <typename T>
+T* DLinkedList<T>::getValue(int index) {
     if(!head){
 		std::cerr << "There is no list.\n";
 		return nullptr;
@@ -231,4 +243,3 @@ int* DLinkedList::getValue(int index) {
 	//return memory address rather than an int value
 	return &(temp->info); 
 }
-
