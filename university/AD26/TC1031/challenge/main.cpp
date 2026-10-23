@@ -1,5 +1,5 @@
 #include <iostream>
-#include "DLinkedList.h"
+#include "double.h"
 
 int main(){
 	
