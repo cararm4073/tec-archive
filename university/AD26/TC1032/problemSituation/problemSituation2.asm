@@ -44,6 +44,18 @@ subAvg, 	HEX 0 /return address
 			Load zero		/set quotient to 0
 			Store quotient	/update value 
 
+sumLoop,    Load sum		/load sum value into ac, should be 0
+            AddI ptr        /sum value from pointer
+            Store sum		/store value
+            Load ptr        /move to next address
+            Add one
+            Store ptr		
+            Load count      /counter decreases, starting at 10, by 1 unit
+            Subt one		
+            Store count	
+            Skipcond 400	/if count==0, stop summing
+            Jump sumLoop    /keep on summing values
+
 divLoop, 	Load sum		/loads current value stored, should be 10
 			Subt ten		/substracts 10. the divider
 			SkipCond 000	/if sum-10 < 0, avoid illegal "division", jumps next line
