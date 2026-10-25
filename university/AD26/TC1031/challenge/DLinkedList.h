@@ -10,7 +10,7 @@ private:
 		Node* prev;
 		
 		//constructor
-		Node(T& value): info(value), next(nullptr), prev(nullptr) {}
+		Node(const T& value): info(value), next(nullptr), prev(nullptr) {}
 	};
 	
 	//still under private, for double linked list
@@ -28,9 +28,9 @@ public:
 	DLinkedList& operator= (const DLinkedList&) = delete;
 	
 	//insertion methods
-	bool addFront(T& value);
-	bool addBack(T& value);
-	bool addSorted(T& value);		//for defeated monsters
+	bool addFront(const T& value);
+	bool addBack(const T& value);
+	bool addSorted(const T& value);		//for defeated monsters
 	
 	//getter methods
 	int getSize();
@@ -38,7 +38,7 @@ public:
 	
 	//search methods
 	T* getValue(int index);
-	bool searchValue(T& value);
+	bool searchValue(const T& value) const; //shouldn't modify the list itself
 	
 	//printing methods
 	void printList();
@@ -46,7 +46,7 @@ public:
 	
 	//delete methods
 	bool clearList();
-	bool deleteElement(T& value);
+	bool deleteElement(const T& value);
 };
 
-#include "double.tpp"
+#include "DLinkedList.tpp"

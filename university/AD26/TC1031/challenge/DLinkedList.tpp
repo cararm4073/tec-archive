@@ -1,5 +1,5 @@
 #include <iostream>
-#include "double.h"
+#include "DLinkedList.h"
 
 //constructor for double linked list
 template <typename T>
@@ -12,7 +12,7 @@ DLinkedList<T>::~DLinkedList() {
 }
 
 template <typename T>
-bool DLinkedList<T>::addFront(T& value){
+bool DLinkedList<T>::addFront(const T& value){
 	Node* newElement = new(std::nothrow) Node(value);
 	if(!newElement){
 		std::cerr << "Failed to create new element.\n";
@@ -38,7 +38,7 @@ bool DLinkedList<T>::addFront(T& value){
 }
 
 template <typename T>
-bool DLinkedList<T>::addBack(T& value){
+bool DLinkedList<T>::addBack(const T& value){
 	Node* newElement = new(std::nothrow) Node(value);
 	if(!newElement){
 		std::cerr << "Failed to create new element.\n";
@@ -62,7 +62,7 @@ bool DLinkedList<T>::addBack(T& value){
 }
 
 template <typename T>
-bool DLinkedList<T>::addSorted(T& value){
+bool DLinkedList<T>::addSorted(const T& value){
 	//base case: if list is empty, or value is less or equal than first element. add to head
 	if (!head or value <= (head->info)) {
 		return addFront(value); 	//addFront is also a bool, so we return the overall output of it with this function
@@ -118,7 +118,7 @@ void DLinkedList<T>::printReverse(){
 }
 
 template <typename T>
-bool DLinkedList<T>::searchValue(T& value){
+bool DLinkedList<T>::searchValue(const T& value) const{
 	if(!head){
 		std::cout << "List is empty.\n";
 		return false;
@@ -154,7 +154,7 @@ bool DLinkedList<T>::clearList(){
 }
 
 template <typename T>
-bool DLinkedList<T>::deleteElement(T& value){
+bool DLinkedList<T>::deleteElement(const T& value){
 	//again, cerr could be moved by comparing true or false in main. could also call isEmpty()
 	if(!head){
 		std::cout << "There is no list to delete value from.\n";

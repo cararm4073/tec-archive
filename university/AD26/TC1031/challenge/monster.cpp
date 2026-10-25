@@ -1,5 +1,4 @@
 #include <iostream>
-#include "double.h"
 #include "monster.h"
 
 //default constructor
@@ -76,6 +75,6 @@ bool Monster::operator!= (const Monster &other) const{
 
 //overload ostream
 std::ostream& operator<< (std::ostream& os, const Monster &monster){
-	os << monster.name << "[hp: " << monster.hp << ", ac: " << monster.ac << "]";
+	os << monster.name << " [hp: " << monster.hp << ", ac: " << monster.ac << "]";
 	return os;
 }
