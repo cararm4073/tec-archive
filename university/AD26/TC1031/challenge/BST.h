@@ -21,7 +21,7 @@ private:
     bool insertRecursive(Node** node, const T& data);
     T* searchRecursive(Node* current, const T& data) const;
     void deleteTreeRecursive(Node** node);
-    void printInOrderRecursive(Node* node) const;
+    //void printInOrderRecursive(Node* node) const;
     void printByLevelsRecursive(Node* node, int level) const;
     void getValueRecursive(Node* node, int& currentIndex, int targetIndex, T*& result) const;    //needed for catalog
 

@@ -11,8 +11,10 @@ bool Dungeon::createRoom(const Monster& monster){
     //copy independent to monster's catalog
     Room newRoom(monster);
 
-    //add room to the back of the linked list
-    rooms.addBack(newRoom);
+    //add room to the back of the linked list, return false if memory allocation fails
+    if(rooms.addBack(newRoom) == false){
+        return false;
+    }
     return true;
 }
 

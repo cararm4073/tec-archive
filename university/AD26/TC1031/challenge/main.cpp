@@ -7,7 +7,6 @@
 #define NUM_ROOMS 20
 
 int main() {
-	srand(time(nullptr));
 
 
     Catalog myCatalog;

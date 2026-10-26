@@ -31,6 +31,7 @@ public:
 	bool addFront(const T& value);
 	bool addBack(const T& value);
 	bool addSorted(const T& value);		//for defeated monsters
+	bool insertAt(int index, const T& value);
 	
 	//getter methods
 	int getSize();

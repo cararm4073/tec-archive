@@ -55,24 +55,23 @@ bool Player::addDefeatedMonster(Monster* monster){
     //insert defeated monsters alphabetically, storing their address
 
     //if list is empty, add at front
-    if (defeatedMonsters.isEmpty()) {
+    if(defeatedMonsters.isEmpty()){
         return defeatedMonsters.addFront(monster);
     }
 
-    //if its name is lower than the first one, add to the front
-    Monster** firstMonster = defeatedMonsters.getValue(0);
-    if (firstMonster and *monster < **firstMonster){
-        return defeatedMonsters.addFront(monster);
-    }
-
-    //compare with last element, deciding whether it goes first or before it in the back
+    //go through the list to find the alphabetical position for the monster
     int listSize = defeatedMonsters.getSize();
-    Monster** lastMonster = defeatedMonsters.getValue(listSize-1);
-    if(lastMonster and *monster >= **lastMonster){
-        return defeatedMonsters.addBack(monster);
+    for(int i = 0; i < listSize; i++){
+        Monster** current = defeatedMonsters.getValue(i);
+        
+        //dereference pointers to compare Monster objects by name (using overloaded <)
+        //if the new monster's name is smaller than current, insert it right at this index
+        if(current and (*monster < **current)){
+            return defeatedMonsters.insertAt(i, monster);
+        }
     }
 
-    
+    //if its name is greater than or equal to all existing monsters, add it to the back
     return defeatedMonsters.addBack(monster);
 }
 

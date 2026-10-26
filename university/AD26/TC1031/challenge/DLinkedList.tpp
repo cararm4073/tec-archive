@@ -1,5 +1,4 @@
 #include <iostream>
-#include "DLinkedList.h"
 
 //constructor for double linked list
 template <typename T>
@@ -92,6 +91,39 @@ bool DLinkedList<T>::addSorted(const T& value){
 	current->prev->next = newElement;
 	current->prev = newElement;
 	
+	size++;
+	return true;
+}
+
+//missing this function, taken from previously impelemtations of double linked lists
+template <typename T>
+bool DLinkedList<T>::insertAt(int index, const T& value){
+	//check if the given index is out of valid bounds
+	if(index < 0 or index > size) return false;
+	
+	//base cases: inserting at the very beginning or at the end of the list
+	if(index == 0) return addFront(value);
+	if(index == size) return addBack(value);
+
+	Node* newElement = new(std::nothrow) Node(value);
+	if(!newElement){
+		std::cerr << "Failed to create new element.\n";
+		return false;
+	}
+
+	//move through the list until reaching the target index
+	Node* current = head;
+	for(int i = 0; i < index; i++){
+		current = current->next;
+	}
+
+	//connect new node before current node
+	newElement->next = current;
+	newElement->prev = current->prev;
+	//neighbor nodes point to the new node
+	current->prev->next = newElement;
+	current->prev = newElement;
+
 	size++;
 	return true;
 }

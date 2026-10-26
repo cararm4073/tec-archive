@@ -2,9 +2,12 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <ctime>
 
 //----------------------constructor and destructor----------------------
-Catalog::Catalog() {}
+Catalog::Catalog() {
+    std::srand(std::time(nullptr));
+}
 
 Catalog::~Catalog(){
     monstersTree.clearTree();   //using the function from BST
@@ -101,7 +104,7 @@ bool Catalog::parseData(const std::string& line, Monster& out) const{
 
     //no field can be empty, and there are monsters with less than 7 fields
     //string fields
-    if(nameString.empty() or typeString.empty() or alignString.empty()) return false;
+    if(nameString.empty() or typeString.empty() or sizeString.empty() or alignString.empty()) return false;
     //number fields
     if(!isDecimal(crString) or !isNumber(acString) or !isNumber(hpString)) return false;
 
@@ -111,7 +114,7 @@ bool Catalog::parseData(const std::string& line, Monster& out) const{
     int hp = std::stoi(hpString);
 
     //verify if it has health
-    if(hp <= 0) return false;
+    //if(hp <= 0) return false;     //comment for now, otherwise the loading stops at line 236
 
     //create a monster with the converted and parsed data, sending it as 'out'
     //to-do: there might be another way to output this result, check
@@ -144,13 +147,18 @@ bool Catalog::loadFromCSV(const std::string& filename){
 
         //if line from file is invalid (missing or extra fields, invalid conversions), let the user know and move to next line
         if(parseData(line, monster) == false){
-            std::cerr << "Line " << lineNumber << " was skipped.\n";
-            continue;
+            std::cerr << "Invalid data at line " << lineNumber << ". Stopping load.\n";
+            monstersTree.clearTree();
+            return false;
         }
 
         //insert the monster into the BST, return false if it is a duplicate
         if(monstersTree.insert(monster) == true) loaded++;
-        else std::cerr << "Duplicate monster at line " << lineNumber << ". Skipped.\n";
+        else {
+            std::cerr << "Duplicate monster at line " << lineNumber << ". Skipped.\n";
+            monstersTree.clearTree();
+            return false;
+        }
     }
     
     //show final results of loading monsters from csv into the program
@@ -159,7 +167,6 @@ bool Catalog::loadFromCSV(const std::string& filename){
     //return bool 
     if(loaded>0) return true;                      //return x number of loaded monsters    
     else return false;                             //did not save any monster, return false
-    
 
 }
 
