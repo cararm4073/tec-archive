@@ -6,6 +6,7 @@
 #include "catalog.h"
 #include "room.h"
 #include "dungeon.h"
+#include "player.h"
 
 int main(){
 	//test of monster class
@@ -99,6 +100,22 @@ int main(){
 	myDungeon.printRooms();
 	std::cout << "First room: " << myDungeon.getRoom(1) << "\n";
 
+	//test of player
+	Player defaultPlayer;
+	Player myPlayer("Carlos", "human");
+
+	std::cout << "Name: " << myPlayer.getName() << "\n";
+    std::cout << "Race: " << myPlayer.getRace() << "\n";
+    std::cout << "HP:   " << myPlayer.getHP() << "\n";
+    std::cout << "MP:   " << myPlayer.getMP() << "\n\n";
+
+	myPlayer.setHP(90);
+	myPlayer.setMP(2000);
+	std::cout << "HP:   " << myPlayer.getHP() << "\n";
+    std::cout << "MP:   " << myPlayer.getMP() << "\n\n";
+
+	bool myRoom1 = myPlayer.addDefeatedMonster(&m1);
+	bool nullRoom = myPlayer.addDefeatedMonster(nullptr);
 
 	return 0;
 }
