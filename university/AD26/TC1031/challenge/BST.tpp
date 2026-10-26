@@ -120,7 +120,12 @@ int BST<T>::getTreeSize() const {
 
 //----------------------printing methods----------------------
 template <typename T>
-void BST<T>::printByLevels(){
+void BST<T>::printTree() const{
+    printByLevelsRecursive(root, 0);    //level 0 is the root of bst
+}
+
+template <typename T>
+void BST<T>::printByLevels() const{
     //base case: if there is no list, there is no root
     if(!root) return;
 
@@ -129,7 +134,7 @@ void BST<T>::printByLevels(){
 }
 
 template <typename T>
-void BST<T>::printByLevelsRecursive(typename BST<T>::Node* node, int level){
+void BST<T>::printByLevelsRecursive(typename BST<T>::Node* node, int level) const{
     if(!node) return;
 
     //visist the right subtree, higher values
@@ -146,6 +151,7 @@ void BST<T>::printByLevelsRecursive(typename BST<T>::Node* node, int level){
     printByLevelsRecursive(node->left, level+1);
 }
 
+
 /*
 Resources used for developing part of the code:
     https://www.youtube.com/watch?v=PVB0KGiS9Jw
@@ -153,4 +159,5 @@ Resources used for developing part of the code:
     https://www.youtube.com/watch?v=0G5cYENDMTI
     https://www.youtube.com/watch?v=DfYjBc_PqcY
     https://muzahid-nafiz.medium.com/problem-solving-in-c-binary-search-tree-bst-079b84a9c011
+    https://www.youtube.com/watch?v=zt0EMKtyyLc
 */

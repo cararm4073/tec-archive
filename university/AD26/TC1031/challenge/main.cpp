@@ -1,7 +1,9 @@
 #include <iostream>
+#include <ctime>
 #include "DLinkedList.h"
 #include "monster.h"
 #include "BST.h"
+#include "catalog.h"
 
 int main(){
 	//test of monster class
@@ -42,6 +44,30 @@ int main(){
 	std::cout << "Size of the tree: " << myTree.getTreeSize() << "\n";
 
 	std::cout << "Second monster's address: " << myTree.getValue(2) << "\n";
+
+	//test of catalog
+	std::cout << "\n";
+	std::srand(std::time(nullptr));
+
+	Catalog myCatalog;
+	bool loadFile = myCatalog.loadFromCSV("monsters.csv");
+	std::cout << "Load: " << (loadFile ? "true" : "false") << "\n";
+	std::cout << "Size: " << myCatalog.getCatalogSize() << "\n";
+
+	myCatalog.printCatalog();
+	Monster* findMyMonster = myCatalog.findMonster("octopus");
+	if(findMyMonster) std::cout << "Found octopus: " << *findMyMonster << "\n";
+	else std::cout << "My octopus was not found :(\n";
+
+	findMyMonster = myCatalog.findMonster("crab");
+	if(findMyMonster) std::cout << "Found crab: " << *findMyMonster << "\n";
+	else std::cout << "My crab was not found :(\n";
+
+	Monster* randomMonster = myCatalog.getRandomMonster();
+	std::cout << "Random: " << *randomMonster << "\n";
+
+	Catalog anotherCatalog;
+	anotherCatalog.loadFromCSV("nonExisting.csv");
 
 	return 0;
 }

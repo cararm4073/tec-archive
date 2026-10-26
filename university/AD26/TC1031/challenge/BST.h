@@ -22,7 +22,7 @@ private:
     T* searchRecursive(Node* current, const T& data) const;
     void deleteTreeRecursive(Node** node);
     void printInOrderRecursive(Node* node) const;
-    void printByLevelsRecursive(Node* node, int level);
+    void printByLevelsRecursive(Node* node, int level) const;
     void getValueRecursive(Node* node, int& currentIndex, int targetIndex, T*& result) const;    //needed for catalog
 
 
@@ -43,7 +43,7 @@ public:
     int getTreeSize() const;
 
     void printTree() const;
-    void printByLevels();
+    void printByLevels() const;
     
     T* searchValueTree(const T& data) const;
     T* getValue(int index) const;         //necesarry for catalog implementation
