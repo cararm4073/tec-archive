@@ -4,6 +4,7 @@
 #include "monster.h"
 #include "BST.h"
 #include "catalog.h"
+#include "room.h"
 
 int main(){
 	//test of monster class
@@ -68,6 +69,26 @@ int main(){
 
 	Catalog anotherCatalog;
 	anotherCatalog.loadFromCSV("nonExisting.csv");
+
+	//test of room
+	std::cout << "\n";
+
+	Monster* m5 = myCatalog.getRandomMonster();
+	Monster* m6 = myCatalog.getRandomMonster();
+
+	Room room1(*m5);
+	Room room2(*m6);
+
+	Monster* roomMonster = room1.getMonster();
+	std::cout << roomMonster->getName() << "\n";
+	Monster* room2Monster = room2.getMonster();
+	std::cout << room2Monster->getName() << "\n";
+
+	Monster goblin("new goblin", 1.0, "test", "test", 5, 7, "test");
+    room2.setMonster(goblin);
+	room2Monster = room2.getMonster();
+	std::cout << room2Monster->getName() << "\n";
+
 
 	return 0;
 }
