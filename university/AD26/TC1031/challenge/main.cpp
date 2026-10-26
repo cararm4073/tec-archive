@@ -7,6 +7,8 @@ int main(){
 	//test of monster class
 	Monster m1("goblin", 2, "humanoid", "small", 15, 9, "neutral");
 	Monster m2("dragon", 24, "dragon", "big", 22, 30, "evil");
+	Monster m3("witch", 1.5, "magic", "medium", 10, 15, "hostile");
+	Monster m4("zombie", 3.0, "dead", "medium", 10, 20, "hostile");
 
 	std::cout << "Monster 1: " << m1 << "\n";
 	std::cout << "Monster 2: " << m2 << "\n";
@@ -25,23 +27,21 @@ int main(){
 	//test of BST
 	std::cout << "\n";
 
-	BST myTree;
-	myTree.insert(50);
-	myTree.insert(70);
-	myTree.insert(30);
-	myTree.insert(20);
-	myTree.insert(60);
-	myTree.insert(40);
-	myTree.insert(80);
+	BST<Monster> myTree;
+	myTree.insert(m2);
+	myTree.insert(m1);
+	myTree.insert(m3);
 	myTree.printByLevels();
 	std::cout << "Size of the tree: " << myTree.getTreeSize() << "\n";
 
-	int* searchValue = myTree.searchValueTree(42);
+	Monster* searchValue = myTree.searchValueTree(m2);
 	std::cout << (searchValue ? "Found value" : "Value Not found") << "\n";
 
-	myTree.insert(20);
+	myTree.insert(m4);
 	myTree.printByLevels();
 	std::cout << "Size of the tree: " << myTree.getTreeSize() << "\n";
+
+	std::cout << "Second monster's address: " << myTree.getValue(2) << "\n";
 
 	return 0;
 }

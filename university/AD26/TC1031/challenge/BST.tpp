@@ -1,20 +1,22 @@
 #include <iostream>
-#include "BST.h"
 
 //----------------------constructor and destructor----------------------
-BST::BST() : root(nullptr), size(0) {}
+template <typename T>
+BST<T>::BST() : root(nullptr), size(0) {}
 
-BST::~BST(){
+template <typename T>
+BST<T>::~BST(){
     clearTree();
 }
 
 //----------------------clear methods----------------------
-void BST::clearTree() {
+template <typename T>
+void BST<T>::clearTree() {
     deleteTreeRecursive(&root);
     size = 0;
 }
-
-void BST::deleteTreeRecursive(Node** node){
+template <typename T>
+void BST<T>::deleteTreeRecursive(typename BST<T>::Node** node){
     if(*node){
         deleteTreeRecursive( &((*node)->left) );
         deleteTreeRecursive( &((*node)->right) );
@@ -25,11 +27,13 @@ void BST::deleteTreeRecursive(Node** node){
 }
 
 //----------------------insertion methods----------------------
-bool BST::insert(int data){
+template <typename T>
+bool BST<T>::insert(const T& data){
     return insertRecursive(&root, data);
 }
 
-bool BST::insertRecursive(Node** node, int data){
+template <typename T>
+bool BST<T>::insertRecursive(typename BST<T>::Node** node, const T& data){
     if(!*node) {
         *node = new(std::nothrow) Node(data);
         if(!*node) return false;
@@ -44,11 +48,13 @@ bool BST::insertRecursive(Node** node, int data){
 }
 
 //----------------------searchinng methods----------------------
-int* BST::searchValueTree(int value) const{
+template <typename T>
+T* BST<T>::searchValueTree(const T& value) const{
     return searchRecursive(root, value);
 }
 
-int* BST::searchRecursive(Node* current, int data) const{
+template <typename T>
+T* BST<T>::searchRecursive(typename BST<T>::Node* current, const T& data) const{
     if(!current) return nullptr;
     
     //if we are looking for a value smaller than on the current node, go to the left
@@ -61,21 +67,23 @@ int* BST::searchRecursive(Node* current, int data) const{
 }
 
 //----------------------get value methods----------------------
-int* BST::getValue(int index) const {
+template <typename T>
+T* BST<T>::getValue(int index) const {
     //if index is negative, over the size of the tree or the tree is empty
     if((index<0) or (index >= size) or (root==nullptr)){
         return nullptr;
     }
 
     int currentIndex = 0;      //counter for how many nodes have been visited
-    int* result = nullptr;     //stores memory address of the value at given index
+    T* result = nullptr;     //stores memory address of the value at given index
 
     //recursively go through the tree, starting at root
     getValueRecursive(root, currentIndex, index, result);
     return result;
 }
 
-void BST::getValueRecursive(Node* node, int& currentIndex, int targetIndex, int *& result) const{
+template <typename T>
+void BST<T>::getValueRecursive(typename BST<T>::Node* node, int& currentIndex, int targetIndex, T*& result) const{
     //base case, there is a null node, or we already found the result
     if((node==nullptr) or (result != nullptr)) return;
 
@@ -99,17 +107,20 @@ void BST::getValueRecursive(Node* node, int& currentIndex, int targetIndex, int 
 }
 
 //----------------------get size methods----------------------
-bool BST::treeIsEmpty() const{
+template <typename T>
+bool BST<T>::treeIsEmpty() const{
     if(root == nullptr) return true;
     return false;
 }
 
-int BST::getTreeSize() const {
+template <typename T>
+int BST<T>::getTreeSize() const {
     return size;
 }
 
 //----------------------printing methods----------------------
-void BST::printByLevels(){
+template <typename T>
+void BST<T>::printByLevels(){
     //base case: if there is no list, there is no root
     if(!root) return;
 
@@ -117,7 +128,8 @@ void BST::printByLevels(){
     std::cout << "\n";
 }
 
-void BST::printByLevelsRecursive(Node* node, int level){
+template <typename T>
+void BST<T>::printByLevelsRecursive(typename BST<T>::Node* node, int level){
     if(!node) return;
 
     //visist the right subtree, higher values

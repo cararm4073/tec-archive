@@ -1,28 +1,29 @@
 #pragma once
 #include <iostream>
 
+template <typename T>
 class BST{
 private: 
     class Node{
     public:
-        int data;
+        T data;
         Node* left;
         Node* right;
 
         //constructor
-        Node(int value): data(value), left(nullptr), right(nullptr) {}
+        Node(const T& value): data(value), left(nullptr), right(nullptr) {}
     };
 
     Node* root;
     int size;
 
     //private methods
-    bool insertRecursive(Node** node, int data);
-    int* searchRecursive(Node* current, int data) const;
+    bool insertRecursive(Node** node, const T& data);
+    T* searchRecursive(Node* current, const T& data) const;
     void deleteTreeRecursive(Node** node);
     void printInOrderRecursive(Node* node) const;
     void printByLevelsRecursive(Node* node, int level);
-    void getValueRecursive(Node* node, int& currentIndex, int targetIndex, int *& result) const;    //needed for catalog
+    void getValueRecursive(Node* node, int& currentIndex, int targetIndex, T*& result) const;    //needed for catalog
 
 
 public:
@@ -34,7 +35,7 @@ public:
     BST& operator= (const BST& other) = delete;
 
     //methods
-    bool insert(int val);
+    bool insert(const T& data);
 
     void clearTree();
     bool treeIsEmpty() const;
@@ -44,6 +45,8 @@ public:
     void printTree() const;
     void printByLevels();
     
-    int* searchValueTree(int value) const;
-    int* getValue(int index) const;         //necesarry for catalog implementation
+    T* searchValueTree(const T& data) const;
+    T* getValue(int index) const;         //necesarry for catalog implementation
 };
+
+#include "BST.tpp"
