@@ -101,7 +101,7 @@ void DLinkedList<T>::printList(){
 	Node* temp = head;
 	
 	while(temp != nullptr){
-		std::cout << temp->info << " ";
+		std::cout << temp->info << "\n";
 		temp = temp->next;
 	}
 	std::cout << "\n";
@@ -111,7 +111,7 @@ template <typename T>
 void DLinkedList<T>::printReverse(){
 	Node* temp = tail;
 	while(temp != nullptr){
-		std::cout << temp->info << " ";
+		std::cout << temp->info << "\n";
 		temp = temp->prev;
 	}
 	std::cout << "\n";
