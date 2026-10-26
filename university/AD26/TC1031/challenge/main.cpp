@@ -5,6 +5,7 @@
 #include "BST.h"
 #include "catalog.h"
 #include "room.h"
+#include "dungeon.h"
 
 int main(){
 	//test of monster class
@@ -88,6 +89,15 @@ int main(){
     room2.setMonster(goblin);
 	room2Monster = room2.getMonster();
 	std::cout << room2Monster->getName() << "\n";
+
+	//test of dungeon
+	std::cout << "\n";
+	Dungeon myDungeon;
+
+	myDungeon.createRoom(*m5);
+	myDungeon.createRoom(*m6);
+	myDungeon.printRooms();
+	std::cout << "First room: " << myDungeon.getRoom(1) << "\n";
 
 
 	return 0;
